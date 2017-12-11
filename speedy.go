@@ -5,11 +5,9 @@ import(
   "os"
   "os/user"
   "github.com/jordan-patterson/promptui"
-  //"github.com/urfave/cli"
   "encoding/json"
   "io/ioutil"
   "os/exec"
-  //"gopkg.in/yaml.v2"
 )
 
 type Directory struct{
@@ -139,7 +137,7 @@ func updateDirs(directories map[string]string,aliases []string){
     dirs[i].Alias=aliases[i]
     dirs[i].Path=directories[aliases[i]]
   }
-  //now make Directories struct container  fmt.Println("Enter a path that exists: ")
+  //now make Directories struct container
   jsonDirs:=Directories{dirs}
   //fmt.Println(jsonDirs)
   jsonData,err := json.Marshal(jsonDirs)
@@ -187,12 +185,10 @@ func changeDir(alias string){
 
 /**************MAIN*******************/
 func main(){
-  /*
+//initialize directory where data will be stored
   if !exists(getFilePath()){
     os.Mkdir(getFilePath(),0700)
   }
-  getNewDirectory()
-  */
   argLength:=len(os.Args)
   if(len(os.Args)>1){
     alias:=os.Args[argLength-1]
